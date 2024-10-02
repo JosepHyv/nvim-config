@@ -15,7 +15,7 @@ opt.title = true
 opt.cursorline = false
 opt.shell = 'zsh'
 opt.mouse = 'a' 
-opt.ignorecase = true 
+opt.ignorecase = true
 opt.shiftwidth = 4
 vim.cmd[[highlight Comment gui=bold ctermbg=10 guifg=LightGreen]]
 --vim.cmd[[syntax on]]
