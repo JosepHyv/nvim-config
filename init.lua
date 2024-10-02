@@ -18,4 +18,4 @@ opt.mouse = 'a'
 opt.ignorecase = true 
 opt.shiftwidth = 4
 vim.cmd[[highlight Comment gui=bold ctermbg=10 guifg=LightGreen]]
-vim.cmd[[syntax on]]
+--vim.cmd[[syntax on]]
