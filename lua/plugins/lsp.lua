@@ -14,7 +14,7 @@ return {
 
             -- Configuración de mason-lspconfig
             require("mason-lspconfig").setup({
-                ensure_installed = { "ruff_lsp", "clangd" }, -- Asegúrate de instalar estos servidores
+                ensure_installed = { "ruff", "clangd" }, -- Asegúrate de instalar estos servidores
             })
 
             -- Configuración de nvim-lspconfig
