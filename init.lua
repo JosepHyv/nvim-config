@@ -1,3 +1,4 @@
+require("config.lazy")
 vim.cmd("colorscheme vim")
 local opt = vim.opt 
 opt.hlsearch = true 
