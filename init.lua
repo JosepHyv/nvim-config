@@ -1,23 +1,6 @@
+if vim.loader then
+	vim.loader.enable()
+end
+
+require("config.options")
 require("config.lazy")
-vim.cmd("colorscheme vim")
-local opt = vim.opt 
-opt.hlsearch = true 
-opt.ruler = true
-opt.ai = true
-opt.encoding = 'utf-8'
-opt.number = true 
-opt.autoindent = true 
-opt.wrap = true 
-opt.tabstop = 4
-opt.softtabstop = 4 
-opt.expandtab = true 
-opt.ignorecase = true 
-opt.title = true 
-opt.cursorline = false
-opt.shell = 'zsh'
-opt.mouse = 'a' 
-opt.ignorecase = true
-opt.shiftwidth = 4
-vim.cmd[[highlight Comment gui=bold ctermbg=10 guifg=LightGreen]]
---vim.cmd[[syntax on]]
-vim.cmd[[highlight StatusLine guibg=NONE gui=bold]] 
