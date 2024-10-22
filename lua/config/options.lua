@@ -17,7 +17,6 @@ vim.api.nvim_set_hl(0, "SignColumn", { bg = "#333333" }) -- Columna de signos
 vim.api.nvim_set_hl(0, "WinSeparator", { bg = "#333333" }) -- Separadores de ventanas
 vim.api.nvim_set_hl(0, "Pmenu", { bg = "#333333" }) -- menu emergente
 
-
 local opt = vim.opt
 local o = vim.o
 o.completeopt = 'menuone,noselect,noinsert,popup'
