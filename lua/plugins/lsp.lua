@@ -1,7 +1,8 @@
 return {
     {
         "williamboman/mason.nvim",
-        config = true
+        config = true,
+        modifiable = true
     }, 
     {
         "neovim/nvim-lspconfig",
@@ -17,20 +18,11 @@ return {
 
             -- Configuración de mason-lspconfig
             require("mason-lspconfig").setup({
-                ensure_installed = { "ruff", "ruff_lsp","clangd" }, -- Asegúrate de instalar estos servidores
+                ensure_installed = { "ruff_lsp", "clangd" }, -- Asegúrate de instalar estos servidores
             })
 
             -- Configuración de nvim-lspconfig
             local lspconfig = require("lspconfig")
-
-            -- Configuración de ruff LSP
-            lspconfig.ruff.setup{
-                init_options = {
-                    settings = {
-                        args = {},  -- Argumentos adicionales para Ruff
-                    },
-                },
-            }
 
             lspconfig.ruff_lsp.setup{
                 init_options = {

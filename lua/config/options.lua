@@ -6,7 +6,7 @@ vim.diagnostic.config({
   virtual_text = true,  -- Desactiva los rectángulos
   underline = true,      -- Subraya las líneas con advertencias/errores
   signs = false,          -- Activa los signos de advertencia en el margen izquierdo
-  update_in_insert = false, --No mostrar en modo insertar
+  update_in_insert = true, --No mostrar en modo insertar
 })
 
 
