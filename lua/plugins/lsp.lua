@@ -18,7 +18,7 @@ return {
 
             -- Configuración de mason-lspconfig
             require("mason-lspconfig").setup({
-                ensure_installed = { "ruff", "clangd", "eslint" }, -- Asegúrate de instalar estos servidores
+                ensure_installed = { "ruff", "clangd", "eslint", "pyright"}, -- Asegúrate de instalar estos servidores
             })
 
             -- Configuración de nvim-lspconfig
@@ -35,7 +35,29 @@ return {
             -- Configuración de clangd LSP
             lspconfig.clangd.setup{}
 
-            lspconfig.eslint.setup{}
+            lspconfig.eslint.setup({
+              on_attach = function(client, bufnr)
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                  buffer = bufnr,
+                  command = "EslintFixAll",
+                  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" },
+                })
+              end,
+            })
+            
+            lspconfig.pyright.setup{
+                settings = {
+                      python = {
+                        analysis = {
+                          autoSearchPaths = true,
+                          diagnosticMode = "openFilesOnly",
+                          useLibraryCodeForTypes = true
+                        }
+                    }
+                },
+                filetypes = {"python"}
+
+            }
 
         end,
     },
