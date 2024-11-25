@@ -1,6 +1,6 @@
 --vim.cmd("colorscheme vim")
-vim.cmd[[highlight Comment gui=bold ctermbg=10 guifg=LightGreen]]
-vim.cmd[[highlight StatusLine guibg=NONE gui=bold]] 
+--vim.cmd[[highlight Comment gui=bold ctermbg=10 guifg=LightGreen]]
+--vim.cmd[[highlight StatusLine guibg=NONE gui=bold]] 
 
 vim.diagnostic.config({
   virtual_text = true,  -- Desactiva los rectángulos
