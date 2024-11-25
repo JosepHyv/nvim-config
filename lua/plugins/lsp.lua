@@ -18,13 +18,13 @@ return {
 
             -- Configuración de mason-lspconfig
             require("mason-lspconfig").setup({
-                ensure_installed = { "ruff_lsp", "clangd" }, -- Asegúrate de instalar estos servidores
+                ensure_installed = { "ruff", "clangd", "eslint" }, -- Asegúrate de instalar estos servidores
             })
 
             -- Configuración de nvim-lspconfig
             local lspconfig = require("lspconfig")
 
-            lspconfig.ruff_lsp.setup{
+            lspconfig.ruff.setup{
                 init_options = {
                     settings = {
                         args = {},  
@@ -34,6 +34,8 @@ return {
 
             -- Configuración de clangd LSP
             lspconfig.clangd.setup{}
+
+            lspconfig.eslint.setup{}
 
         end,
     },

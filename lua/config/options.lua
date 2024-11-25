@@ -1,4 +1,4 @@
-vim.cmd("colorscheme vim")
+--vim.cmd("colorscheme vim")
 vim.cmd[[highlight Comment gui=bold ctermbg=10 guifg=LightGreen]]
 vim.cmd[[highlight StatusLine guibg=NONE gui=bold]] 
 
