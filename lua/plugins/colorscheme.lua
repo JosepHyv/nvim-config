@@ -7,6 +7,8 @@ return {
 			vim.g.sonokai_enable_italic = "1"
 			vim.g.sonokai_style = "andromeda"
 			vim.cmd.colorscheme("sonokai")
-		end,
+            vim.cmd[[highlight Comment gui=bold ctermbg=10 guifg=LightGreen]]
+            vim.cmd[[highlight StatusLine guibg=NONE gui=bold]]
+        end,
 	},
 }
