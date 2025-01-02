@@ -1,29 +1,48 @@
 local keymap = vim.keymap
 local opts = {noremap = true, silent = true}
 
--- Formatear automáticamente al guardar
---vim.api.nvim_create_user_command("WF", function()
---  vim.lsp.buf.format({ async = true })
---  vim.cmd("write")  -- Guardar el archivo
---end, {})
+--- Increment/decrement
+keymap.set("n", "+", "<C-a>")
+keymap.set("n", "-", "<C-x>")
 
+--- toggle nvim NvimTreeToggle
+keymap.set("n", '<C-b>', ':NvimTreeToggle<Return>', opts)
 
---vim.api.nvim_create_autocmd("<C-b>", function()
-    
---end, {})
+--- open lazy
+keymap.set("n", "<C-l>", ":Lazy<Return>", opts)
 
-keymap.set("n", '<C-b>', ':NvimTreeToggle<CR>', opts)
+--- Ctrl + q to close current
+keymap.set("n", "<C-q>", ":close<Return>", opts)
+keymap.set("n", "<S-q>", ":quitall<Return>", opts)
+
+--- Ctrl + s to save and format
 keymap.set("n", "<C-s>", function()
     vim.lsp.buf.format({async = true})
     vim.cmd("write")
 end, opts)
 
+--- Ctrl + c to copy selected lines 
+keymap.set("n", "<C-c>", "+y")
 
---vim.api.nvim_create_autocmd("BufWritePre", {
---  callback = function()
---    vim.lsp.buf.format({ async = true })
---  end,
---})
+--- Select all file
+keymap.set("n", "<C-a>", "gg<S-v>G")
 
+--- jumplist
+keymap.set("n", "<C-m>", "<C-i>", opts)
 
+--- Tabs
+keymap.set("n", "te", ":tabedit<Return>", opts)
+keymap.set("n", "<tab>", ":tabnext<Return>", opts)
+keymap.set("n", "<S-tab>", ":tabprev<Return>", opts)
+
+--- Split windows 
+
+keymap.set("n", "ss", ":split<CR>", opts)
+keymap.set("n", "sv", ":vsplit<CR>", opts)
+
+--- Move window
+keymap.set("n", "h", "<C-w><left>", opts)
+keymap.set("n", "k", "<C-w><up>", opts)
+keymap.set("n", "j", "<C-w><down>", opts)
+keymap.set("n", "l", "<C-w><right>", opts)
 
