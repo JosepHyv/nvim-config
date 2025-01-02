@@ -22,8 +22,8 @@ keymap.set("n", "<C-b>", ":Telescope buffers<Return>", opts)
 keymap.set("n", "<C-S-p>", ":Telescope commands<Return>", opts)
 
 --- Ctrl + q to close current
-keymap.set("n", "<C-q>", ":quit<Return>", opts)
-keymap.set("n", "<C-S-q>", ":quitall<Return>", opts)
+keymap.set("n", "<C-w>", ":quit<Return>", opts)
+--keymap.set("n", "<C-S-q>", ":quitall<Return>", opts)
 
 --- Ctrl + s to save and format
 keymap.set("n", "<C-s>", function()
