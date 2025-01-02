@@ -22,7 +22,7 @@ keymap.set("n", "<C-b>", ":Telescope buffers<Return>", opts)
 keymap.set("n", "<C-S-p>", ":Telescope commands<Return>", opts)
 
 --- Ctrl + q to close current
-keymap.set("n", "<C-w>", ":quit<Return>", opts)
+keymap.set("n", "<C-q>", ":quit<Return>", opts)
 --keymap.set("n", "<C-S-q>", ":quitall<Return>", opts)
 
 --- Ctrl + s to save and format
@@ -56,3 +56,8 @@ keymap.set("n", "k", "<C-w><up>", opts)
 keymap.set("n", "j", "<C-w><down>", opts)
 keymap.set("n", "l", "<C-w><right>", opts)
 
+--- Resize windows 
+keymap.set("n", "<C-w><left>", "<C-w><")
+keymap.set("n", "<C-w><right>", "<C-w>>")
+keymap.set("n", "<C-w><up>", "<C-w>+")
+keymap.set("n", "<C-w><down>", "<C-w>-")
