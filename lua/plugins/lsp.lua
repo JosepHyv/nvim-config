@@ -40,7 +40,7 @@ return {
                 vim.api.nvim_create_autocmd("BufWritePre", {
                   buffer = bufnr,
                   command = "EslintFixAll",
-                  filetypes = { "js","ts","jsx", "tsx","javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" },
+                  --filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" },
                 })
               end,
             })

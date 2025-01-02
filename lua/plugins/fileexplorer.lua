@@ -10,6 +10,16 @@ return {
   },
   config = function()
     require("nvim-tree").setup({
+      update_cwd = true, 
+      respect_buf_cwd = true, 
+      hijack_directories = {
+        enable = false, 
+      },
+      actions = {
+        change_dir = {
+            restrict_above_cwd = true,
+        }, 
+      },
       sort = {
         sorter = "case_sensitive",
       },

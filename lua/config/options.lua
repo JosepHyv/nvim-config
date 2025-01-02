@@ -19,6 +19,8 @@ vim.api.nvim_set_hl(0, "Pmenu", { bg = "#333333" }) -- menu emergente
 
 local opt = vim.opt
 local o = vim.o
+local g = vim.g
+g.mapleader = " "
 o.completeopt = 'menuone,noselect,noinsert,popup'
 opt.hlsearch = true 
 opt.ruler = true

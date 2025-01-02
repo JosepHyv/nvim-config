@@ -6,14 +6,24 @@ keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 --- toggle nvim NvimTreeToggle
-keymap.set("n", '<C-b>', ':NvimTreeToggle<Return>', opts)
+keymap.set("n", '<S-b>', ':NvimTreeToggle<Return>', opts)
+keymap.set("n", "<C-e>", ":NvimTreeFocus<Return>", opts)
 
 --- open lazy
 keymap.set("n", "<C-l>", ":Lazy<Return>", opts)
 
+--- find files telescope 
+keymap.set("n", "<C-p>", ":Telescope find_files<Return>", opts)
+
+--- find open buffers
+keymap.set("n", "<C-b>", ":Telescope buffers<Return>", opts)
+
+--- open telescope as command line
+keymap.set("n", "<C-S-p>", ":Telescope commands<Return>", opts)
+
 --- Ctrl + q to close current
-keymap.set("n", "<C-q>", ":close<Return>", opts)
-keymap.set("n", "<S-q>", ":quitall<Return>", opts)
+keymap.set("n", "<C-q>", ":quit<Return>", opts)
+keymap.set("n", "<C-S-q>", ":quitall<Return>", opts)
 
 --- Ctrl + s to save and format
 keymap.set("n", "<C-s>", function()
