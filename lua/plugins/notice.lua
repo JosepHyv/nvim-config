@@ -1,10 +1,14 @@
-return {
+local noice =  {
     "folke/noice.nvim", 
     event = "VeryLazy", 
     dependencies = {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
     },
+}
+
+
+noice.config = function() 
     require("noice").setup({
         lsp = {
             override = {
@@ -21,4 +25,6 @@ return {
             lsp_doc_border = false,
         }
     })
-}
+end
+
+return noice 
