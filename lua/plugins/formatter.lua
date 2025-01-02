@@ -15,15 +15,18 @@ return {
         sources = {
           null_ls.builtins.formatting.black,     -- Usa black para Python
           null_ls.builtins.formatting.clang_format, -- Formateador para C y C++
+          null_ls.builtins.formatting.prettier,
         },
       })
+
 
       -- Asegurarse de que mason instale los linters y formatters automáticamente
       mason_null_ls.setup({
         ensure_installed = {
           "black",       -- Formateador para Python
           "clang_format", -- Formateador para C y C++
-        },
+          "prettier",  
+      },
         automatic_installation = true, -- Instala automáticamente si no está instalado
       })
     end
