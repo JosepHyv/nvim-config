@@ -6,8 +6,7 @@ keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 --- toggle nvim NvimTreeToggle
-keymap.set("n", '<S-b>', ':NvimTreeToggle<Return>', opts)
-keymap.set("n", "<C-e>", ":NvimTreeFocus<Return>", opts)
+keymap.set("n", '<C-e>', ':NvimTreeToggle<Return>', opts)
 
 --- open lazy
 keymap.set("n", "<C-l>", ":Lazy<Return>", opts)

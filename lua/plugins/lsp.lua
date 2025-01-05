@@ -18,7 +18,7 @@ return {
 
             -- Configuración de mason-lspconfig
             require("mason-lspconfig").setup({
-                ensure_installed = { "ruff", "ts_ls","clangd", "eslint", "pyright"}, -- Asegúrate de instalar estos servidores
+                ensure_installed = { "ruff", "ts_ls","clangd", "pyright"}, -- Asegúrate de instalar estos servidores
             })
 
             -- Configuración de nvim-lspconfig
@@ -49,12 +49,12 @@ return {
                 on_attach = function(client, bufnr)
                         client.server_capabilities.documentFormattingProvider = false
                 end,
-                init_options = {
-                    plugins = {{
+                --init_options = {
+                   -- plugins = {{
                        -- name = "@vue/typescript-plugin", 
                        --location = "/usr/local/lib/node_modules/@vue"
-                    }},  
-                }, 
+                  --  }},  
+                --}, 
                 filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
                 root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git")
             })
