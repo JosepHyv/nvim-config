@@ -5,10 +5,7 @@ return {
         modifiable = true
     }, 
     {
-        "neovim/nvim-lspconfig",
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",  -- Asegúrate de tener instalado mason-lspconfig
+        "williamboman/mason-lspconfig.nvim",  
         dependencies = {
             "williamboman/mason.nvim",
             "neovim/nvim-lspconfig",
@@ -16,12 +13,10 @@ return {
         config = function()
             require("mason").setup()
 
-            -- Configuración de mason-lspconfig
             require("mason-lspconfig").setup({
-                ensure_installed = { "ruff", "ts_ls","clangd", "pyright"}, -- Asegúrate de instalar estos servidores
+                ensure_installed = { "ruff", "ts_ls","clangd", "pyright"}, 
             })
 
-            -- Configuración de nvim-lspconfig
             local lspconfig = require("lspconfig")
 
             lspconfig.ruff.setup{
@@ -32,29 +27,13 @@ return {
                 },
             }
 
-            -- Configuración de clangd LSP
             lspconfig.clangd.setup{}
 
-           -- lspconfig.eslint.setup({
-           --   on_attach = function(client, bufnr)
-           --     vim.api.nvim_create_autocmd("BufWritePre", {
-           --       buffer = bufnr,
-           --       command = "EslintFixAll",
-                  --filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" },
-           --     })
-           --   end,
-           -- })
 
             lspconfig.ts_ls.setup({
                 on_attach = function(client, bufnr)
                         client.server_capabilities.documentFormattingProvider = false
                 end,
-                --init_options = {
-                   -- plugins = {{
-                       -- name = "@vue/typescript-plugin", 
-                       --location = "/usr/local/lib/node_modules/@vue"
-                  --  }},  
-                --}, 
                 filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
                 root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git")
             })
