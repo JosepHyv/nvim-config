@@ -6,10 +6,14 @@ keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 --- toggle nvim NvimTreeToggle
-keymap.set("n", '<C-e>', ':NvimTreeToggle<Return>', opts)
+--keymap.set("n", '<C-e>', ':NvimTreeToggle<Return>', opts)
 
 --- open lazy
-keymap.set("n", "<C-l>", ":Lazy<Return>", opts)
+keymap.set("n", "<leader>l", ":Lazy<Return>", opts)
+
+--- open mason
+
+keymap.set("n", "<leader>m", ":Mason<Return>", opts)
 
 --- find files telescope 
 keymap.set("n", "<leader>p", ":Telescope find_files<Return>", opts)
@@ -18,7 +22,7 @@ keymap.set("n", "<leader>p", ":Telescope find_files<Return>", opts)
 keymap.set("n", "<leader>b", ":Telescope buffers<Return>", opts)
 
 --- open telescope as command line
-keymap.set("n", "<C-S-p>", ":Telescope commands<Return>", opts)
+--keymap.set("n", "<C-S-p>", ":Telescope commands<Return>", opts)
 
 --- Ctrl + q to close current
 keymap.set("n", "<C-q>", ":quit<Return>", opts)
@@ -41,8 +45,8 @@ keymap.set("n", "<C-m>", "<C-i>", opts)
 
 --- Tabs
 keymap.set("n", "te", ":tabedit<Return>", opts)
-keymap.set("n", "<tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<S-tab>", ":tabprev<Return>", opts)
+keymap.set("n", "<leader>]", ":tabnext<Return>", opts)
+keymap.set("n", "<leader>[", ":tabprev<Return>", opts)
 
 --- Split windows 
 
