@@ -6,16 +6,16 @@ keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 --- toggle nvim NvimTreeToggle
-keymap.set("n", '<S-e>', ':NvimTreeToggle<Return>', opts)
+keymap.set("n", '<C-e>', ':NvimTreeToggle<Return>', opts)
 
 --- open lazy
 keymap.set("n", "<C-l>", ":Lazy<Return>", opts)
 
 --- find files telescope 
-keymap.set("n", "<C-p>", ":Telescope find_files<Return>", opts)
+keymap.set("n", "<leader>p", ":Telescope find_files<Return>", opts)
 
 --- find open buffers
-keymap.set("n", "<C-b>", ":Telescope buffers<Return>", opts)
+keymap.set("n", "<leader>b", ":Telescope buffers<Return>", opts)
 
 --- open telescope as command line
 keymap.set("n", "<C-S-p>", ":Telescope commands<Return>", opts)
@@ -30,13 +30,13 @@ keymap.set("n", "<C-s>", function()
     vim.cmd("write")
 end, opts)
 
+--- select all the file 
+keymap.set("n", "<leader>a", "gg<S-v>G")
 --- Ctrl + c to copy selected lines 
-keymap.set("n", "<C-c>", "+y")
+keymap.set("v", "<leader>y",'"+y', opts)
 
---- Select all file
-keymap.set("n", "<C-a>", "gg<S-v>G")
 
---- jumplist
+-- jumplist
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
 --- Tabs
@@ -46,17 +46,17 @@ keymap.set("n", "<S-tab>", ":tabprev<Return>", opts)
 
 --- Split windows 
 
-keymap.set("n", "ss", ":split<CR>", opts)
-keymap.set("n", "sv", ":vsplit<CR>", opts)
+keymap.set("n", "<leader>s", ":split<CR>", opts)
+keymap.set("n", "<leader>v", ":vsplit<CR>", opts)
 
 --- Move window
-keymap.set("n", "h", "<C-w><left>", opts)
-keymap.set("n", "k", "<C-w><up>", opts)
-keymap.set("n", "j", "<C-w><down>", opts)
-keymap.set("n", "l", "<C-w><right>", opts)
+keymap.set("n", "<leader>h", "<C-w><left>", opts)
+keymap.set("n", "<leader>k", "<C-w><up>", opts)
+keymap.set("n", "<leader>j", "<C-w><down>", opts)
+keymap.set("n", "<leader>l", "<C-w><right>", opts)
 
 --- Resize windows 
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
+keymap.set("n", "<leader><left>", "<C-w><")
+keymap.set("n", "<leader><right>", "<C-w>>")
+keymap.set("n", "<leader><up>", "<C-w>+")
+keymap.set("n", "<leader><down>", "<C-w>-")
