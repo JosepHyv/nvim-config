@@ -15,7 +15,7 @@ return {
 
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "ruff_lsp",
+                    -- "ruff_lsp",
                     "ts_ls",
                     "clangd",
                     "pyright",
