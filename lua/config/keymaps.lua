@@ -9,7 +9,7 @@ keymap.set("n", "-", "<C-x>")
 --keymap.set("n", '<C-e>', ':NvimTreeToggle<Return>', opts)
 
 --- open lazy
-keymap.set("n", "<leader>l", ":Lazy<Return>", opts)
+keymap.set("n", "<leader><S-l>", ":Lazy<return>", opts)
 
 --- open mason
 
