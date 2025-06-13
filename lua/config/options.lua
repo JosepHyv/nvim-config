@@ -10,6 +10,15 @@ vim.diagnostic.config({
 })
 
 
+--- load automatically esternal files 
+
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  pattern = "*",
+  command = "checktime"
+})
+
+
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#333333" }) -- Menús flotantes
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#333333" }) -- Bordes de menús flotantes

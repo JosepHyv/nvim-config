@@ -1,12 +1,12 @@
 local keymap = vim.keymap
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 
 --- Increment/decrement
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 --- toggle nvim NvimTreeToggle
---keymap.set("n", '<C-e>', ':NvimTreeToggle<Return>', opts)
+keymap.set("n", "<leader-e>", ":NvimTreeToggle<Return>", opts)
 
 --- open lazy
 keymap.set("n", "<leader><S-l>", ":Lazy<return>", opts)
@@ -15,7 +15,7 @@ keymap.set("n", "<leader><S-l>", ":Lazy<return>", opts)
 
 keymap.set("n", "<leader>m", ":Mason<Return>", opts)
 
---- find files telescope 
+--- find files telescope
 keymap.set("n", "<leader>p", ":Telescope find_files<Return>", opts)
 
 --- find open buffers
@@ -30,15 +30,14 @@ keymap.set("n", "<C-q>", ":quit<Return>", opts)
 
 --- Ctrl + s to save and format
 keymap.set("n", "<C-s>", function()
-    vim.lsp.buf.format({async = true})
-    vim.cmd("write")
+	vim.lsp.buf.format({ async = true })
+	vim.cmd("write")
 end, opts)
 
---- select all the file 
+--- select all the file
 keymap.set("n", "<leader>a", "gg<S-v>G")
---- Ctrl + c to copy selected lines 
-keymap.set("v", "<leader>y",'"+y', opts)
-
+--- Ctrl + c to copy selected lines
+keymap.set("v", "<leader>y", '"+y', opts)
 
 -- jumplist
 keymap.set("n", "<C-m>", "<C-i>", opts)
@@ -48,7 +47,7 @@ keymap.set("n", "te", ":tabedit<Return>", opts)
 keymap.set("n", "<leader>]", ":tabnext<Return>", opts)
 keymap.set("n", "<leader>[", ":tabprev<Return>", opts)
 
---- Split windows 
+--- Split windows
 
 keymap.set("n", "<leader>s", ":split<CR>", opts)
 keymap.set("n", "<leader>v", ":vsplit<CR>", opts)
@@ -59,8 +58,27 @@ keymap.set("n", "<leader>k", "<C-w><up>", opts)
 keymap.set("n", "<leader>j", "<C-w><down>", opts)
 keymap.set("n", "<leader>l", "<C-w><right>", opts)
 
---- Resize windows 
+--- Resize windows
 keymap.set("n", "<leader><left>", "<C-w><")
 keymap.set("n", "<leader><right>", "<C-w>>")
 keymap.set("n", "<leader><up>", "<C-w>+")
 keymap.set("n", "<leader><down>", "<C-w>-")
+
+--- Find inside of files with telescope
+--- this requires ripgrep package 
+--- sudo pacman -S ripgrep
+keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+--- another way
+--- :vimgrep {pattern} **/*.extension
+--- :copen
+
+
+--- find in the current file with telescope 
+keymap.set("n", "<leader>f", ":Telescope current_buffer_fuzzy_find<CR>", opts)
+
+
+--- close all notifications
+vim.keymap.set("n", "<Esc>", function()
+  require("notify").dismiss({ silent = true, pending = true })
+end, { desc = "Cerrar notificaciones" })
+
