@@ -82,3 +82,6 @@ vim.keymap.set("n", "<Esc>", function()
   require("notify").dismiss({ silent = true, pending = true })
 end, { desc = "Cerrar notificaciones" })
 
+
+-- Keymap para cerrar Neovim completamente, forzando el cierre
+vim.keymap.set("n", "<leader>Q", "<cmd>qa!<CR>", { desc = "Cerrar Neovim (forzar, descartar cambios)" })

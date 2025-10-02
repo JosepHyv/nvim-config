@@ -1,3 +1,4 @@
+-- fileexplorer.lua
 return {
 	"nvim-tree/nvim-tree.lua",
 	version = "*",
@@ -43,7 +44,7 @@ return {
 				side = "right",
 			},
 			renderer = { group_empty = true },
-			filters = { dotfiles = true },
+			filters = { dotfiles = false }, -- <--- CAMBIA ESTO A FALSE
 			on_attach = my_on_attach,
 		})
 	end,
