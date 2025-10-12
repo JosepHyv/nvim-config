@@ -2,7 +2,6 @@ return {
     {
         "williamboman/mason.nvim",
         config = true,
-        -- modifiable = true
     },
     {
         "williamboman/mason-lspconfig.nvim",
@@ -13,9 +12,10 @@ return {
         config = function()
             require("mason").setup()
 
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    -- "ruff_lsp",
                     "ts_ls",
                     "clangd",
                     "pyright",
@@ -24,55 +24,49 @@ return {
                     "html",
                     "lua_ls"
                 },
-            })
-
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            local lspconfig = require("lspconfig")
-
-            lspconfig.pyright.setup({
-                capabilities = capabilities,
-                settings = {
-                    python = {
-                        analysis = {
-                            autoSearchPaths = true,
-                            diagnosticMode = "openFilesOnly",
-                            useLibraryCodeForTypes = true
-                        }
-                    }
-                }
-            })
-
-            lspconfig.ruff.setup({
-                capabilities = capabilities,
-                init_options = {
-                    settings = {
-                        args = {},
-                    },
+                handlers = {
+                    function(server_name) -- default handler
+                        require("lspconfig")[server_name].setup({
+                            capabilities = capabilities,
+                        })
+                    end,
+                    ["lua_ls"] = function()
+                        require("lspconfig").lua_ls.setup({
+                            capabilities = capabilities,
+                            settings = {
+                                Lua = {
+                                    diagnostics = {
+                                        globals = { "vim" },
+                                    },
+                                },
+                            },
+                        })
+                    end,
+                    ["pyright"] = function()
+                        require("lspconfig").pyright.setup({
+                            capabilities = capabilities,
+                            settings = {
+                                python = {
+                                    analysis = {
+                                        autoSearchPaths = true,
+                                        diagnosticMode = "openFilesOnly",
+                                        useLibraryCodeForTypes = true,
+                                    },
+                                },
+                            },
+                        })
+                    end,
+                    ["ts_ls"] = function()
+                        require("lspconfig").ts_ls.setup({
+                            capabilities = capabilities,
+                            on_attach = function(client, bufnr)
+                                client.server_capabilities.documentFormattingProvider = false
+                            end,
+                            filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+                            root_dir = require("lspconfig").util.root_pattern("package.json", "tsconfig.json", ".git"),
+                        })
+                    end,
                 },
-            })
-
-
-            lspconfig.ts_ls.setup({
-                capabilities = capabilities,
-                on_attach = function(client, bufnr)
-                    client.server_capabilities.documentFormattingProvider = false
-                end,
-                filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-                root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git")
-            })
-            lspconfig.clangd.setup({ capabilities = capabilities })
-            lspconfig.gopls.setup({ capabilities = capabilities })
-            lspconfig.bashls.setup({ capabilities = capabilities })
-            lspconfig.html.setup({ capabilities = capabilities })
-            lspconfig.lua_ls.setup({
-                capabilities = capabilities,
-                settings = {
-                    Lua = {
-                        diagnostics = {
-                            globals = { "vim" }
-                        }
-                    }
-                }
             })
         end,
     },
