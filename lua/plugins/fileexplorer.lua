@@ -44,7 +44,7 @@ return {
 				side = "right",
 			},
 			renderer = { group_empty = true },
-			filters = { dotfiles = false }, -- <--- CAMBIA ESTO A FALSE
+			filters = { dotfiles = false, custom = {} },
 			on_attach = my_on_attach,
 		})
 	end,

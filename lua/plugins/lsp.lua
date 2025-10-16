@@ -12,6 +12,18 @@ return {
         config = function()
             require("mason").setup()
 
+            vim.diagnostic.config({
+                virtual_text = false,
+                signs = true,
+                underline = true,
+                update_in_insert = false,
+                severity_sort = true,
+                float = {
+                    source = "always",
+                    border = "rounded",
+                },
+            })
+
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             require("mason-lspconfig").setup({

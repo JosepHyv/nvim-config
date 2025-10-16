@@ -85,3 +85,11 @@ end, { desc = "Cerrar notificaciones" })
 
 -- Keymap para cerrar Neovim completamente, forzando el cierre
 vim.keymap.set("n", "<leader>Q", "<cmd>qa!<CR>", { desc = "Cerrar Neovim (forzar, descartar cambios)" })
+
+--- Diagnostic keymaps
+keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+keymap.set("n", "gl", function()
+    vim.diagnostic.open_float(nil, { focusable = false })
+end, { desc = "Show diagnostic in float" })
+
